@@ -14,7 +14,7 @@ namespace HS2231A1.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View();
+            return View(m.CustomerGetAll());
         }
 
         // GET: Customers/Details/5
