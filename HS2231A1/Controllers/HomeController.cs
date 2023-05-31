@@ -25,7 +25,7 @@ namespace HS2231A1.Controllers
 
         public ActionResult Contact()
             {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Hamit Sehjal";
 
             return View();
             }
