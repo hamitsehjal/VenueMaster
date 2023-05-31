@@ -18,9 +18,15 @@ namespace HS2231A1.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            // Attempt to get the matching object
+            var obj = m.CustomerGetById(id.GetValueOrDefault());
+
+            if (obj == null)
+                return HttpNotFound();
+            else
+                return View(obj);
         }
 
         // GET: Customers/Create
