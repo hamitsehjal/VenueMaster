@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HS2231A1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,17 +38,25 @@ namespace HS2231A1.Controllers
 
         // POST: Customers/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CustomerAddViewModel newItem)
         {
+            // Validate the input
+            if (!ModelState.IsValid)
+                return View(newItem);
             try
             {
                 // TODO: Add insert logic here
+                // Process the input
+                var addedItem = m.CustomerAdd(newItem);
 
-                return RedirectToAction("Index");
+                if (addedItem == null)
+                    return View(newItem);
+                else
+                    return RedirectToAction("Details",new {id=addedItem.CustomerId});
             }
             catch
             {
-                return View();
+                return View(newItem);
             }
         }
 

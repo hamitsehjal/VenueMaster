@@ -36,7 +36,11 @@ namespace HS2231A1.Controllers
                 // cfg.CreateMap<SourceType, DestinationType>();
                 // cfg.CreateMap<Product, ProductBaseViewModel>();
 
+                // Map from customer Desgin model to CustomerBaseViewModel
                 cfg.CreateMap<Customer, CustomerBaseViewModel>();
+
+                // Map from CustomerAddViewModel to Customer Design model.
+                cfg.CreateMap<CustomerAddViewModel, Customer>();
 
             });
 
@@ -74,6 +78,18 @@ namespace HS2231A1.Controllers
 
             // Return the result (or null if not found)
             return obj == null ? null : mapper.Map<Customer,CustomerBaseViewModel>(obj);
+            }
+
+        // Add a new Customer
+        public CustomerBaseViewModel CustomerAdd(CustomerAddViewModel newCustomer)
+            {
+            // Attempt to add the new item
+            // mapping from CustomerAddViewModel to Customer Class
+            var addedItem = ds.Customers.Add(mapper.Map<CustomerAddViewModel,Customer>(newCustomer));
+            ds.SaveChanges();
+
+            // If successful, return the addedItem (mapped to CustomerBaseViewModel class)
+            return addedItem == null ? null : mapper.Map<Customer, CustomerBaseViewModel>(addedItem);
             }
 
         }
