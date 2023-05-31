@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HS2231A1.Data;
+using HS2231A1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,8 @@ namespace HS2231A1.Controllers
                 // cfg.CreateMap<SourceType, DestinationType>();
                 // cfg.CreateMap<Product, ProductBaseViewModel>();
 
+                cfg.CreateMap<Customer, CustomerBaseViewModel>();
+
             });
 
             mapper = config.CreateMapper();
@@ -56,7 +59,22 @@ namespace HS2231A1.Controllers
         // Remember to use the suggested naming convention, for example:
         // ProductGetAll(), ProductGetById(), ProductAdd(), ProductEdit(), and ProductDelete().
 
+        // Get all customers
+        public IEnumerable<CustomerBaseViewModel> CustomerGetAll()
+            {
+            // syntax: mapper.Map<<source object Type>,<target object Type>>(source-object);
+            return mapper.Map<IEnumerable<Customer>,IEnumerable<CustomerBaseViewModel>>(ds.Customers);
+            }
 
+        // Get one customer
+        public CustomerBaseViewModel CustomerGetById(int id)
+            {
+            // Attempt to fetch the object
+            var obj = ds.Customers.Find(id);
+
+            // Return the result (or null if not found)
+            return obj == null ? null : mapper.Map<Customer,CustomerBaseViewModel>(obj);
+            }
 
         }
     }
