@@ -4,7 +4,7 @@
 Venue Management Web App is a cutting-edge web application designed to streamline the management of venues. Whether you are organizing events, booking spaces, or simply keeping track of your favorite locations, our app is here to assist you every step of the way. With a focus on user-friendly design and robust functionality, we aim to empower users like you to effortlessly handle all your venue-related needs.
 
 ### About the Developer
-WEB524 - Winter 2023 is a project developed by Hamit Sehjal. Hamit is a skilled developer and designer who brought this web app to life. With a deep understanding of modern web development practices and a passion for delivering exceptional user experiences, Hamit is proud to present this project as a result of his hard work and dedication.
+VenueMaster is a project developed by Hamit Sehjal. Hamit is a skilled developer and designer who brought this web app to life. With a deep understanding of modern web development practices and a passion for delivering exceptional user experiences, Hamit is proud to present this project as a result of his hard work and dedication.
 
 On this About page, you will find relevant information about our web app, including its purpose and the person behind it. We encourage you to explore the various sections and features of Venue Management Web App to fully experience its capabilities.
 
