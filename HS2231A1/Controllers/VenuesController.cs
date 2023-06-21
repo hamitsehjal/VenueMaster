@@ -34,7 +34,9 @@ namespace HS2231A1.Controllers
         // GET: Venues/Create
         public ActionResult Create()
         {
-            return View();
+            // object with initial data
+            var obj = new VenueAddViewModel();
+            return View(obj);
         }
 
         // POST: Venues/Create

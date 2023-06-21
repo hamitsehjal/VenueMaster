@@ -50,6 +50,7 @@ namespace HS2231A1.Models
 
         [StringLength(60)]
         [Display(Name ="Website")]
+        [DataType(DataType.Url)]
         public string Website { get; set; }
 
         [Display(Name ="OpenDate")]
@@ -60,6 +61,22 @@ namespace HS2231A1.Models
         public VenueAddViewModel()
             {
             // Initialized a new open date to the current date less 23 years
+            Company = "Seneca College";
+
+            Address = "Finch Avenue East";
+
+            City = "North York";
+
+            State = "Ontario";
+
+            Country = "Canada";
+
+            PostalCode = "L6R 2M2";
+
+            Phone = "+1 3695241188";
+
+            Email = "help@senecacollege.ca";
+            Website = "www.senecacollege.ca";
             OpenDate = DateTime.Now.AddYears(-23);
             }
         }

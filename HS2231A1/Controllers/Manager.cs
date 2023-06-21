@@ -80,7 +80,6 @@ namespace HS2231A1.Controllers
         // Get all customers
         public IEnumerable<CustomerBaseViewModel> CustomerGetAll()
             {
-            // syntax: mapper.Map<<source object Type>,<target object Type>>(source-object);
             return mapper.Map<IEnumerable<Customer>,IEnumerable<CustomerBaseViewModel>>(ds.Customers);
             }
 
@@ -121,7 +120,7 @@ namespace HS2231A1.Controllers
                 {
                 // customer was found. Update the entity object
                 // with the incoming values then save the changes
-                ds.Entry(obj).CurrentValues.SetValues(obj);
+                ds.Entry(obj).CurrentValues.SetValues(customer);
                 ds.SaveChanges();
 
                 // Prepare and return the object
@@ -150,34 +149,26 @@ namespace HS2231A1.Controllers
 
         public IEnumerable<VenueBaseViewModel> VenueGetAll()
             {
-           
-            //var venues = ds.Venues.OrderBy(v => v.Company);
-            //return mapper.Map<IEnumerable<Venue>, IEnumerable<VenueBaseViewModel>>(venues);
+
+
+
             var venues = ds.Venues.OrderBy(v => v.Company);
             var newCollection = new List<VenueBaseViewModel>();
-            foreach (var venue in venues)
-                {
-                var viewModel = mapper.Map<Venue, VenueBaseViewModel>(venue);
-                newCollection.Add(viewModel);
-                }
 
-            return newCollection;
+            return mapper.Map<IEnumerable<Venue>, IEnumerable<VenueBaseViewModel>>(venues);
+
+
+
             }
 
 
         // Get one Venue
         public VenueBaseViewModel VenueGetOneById(int id)
             {
+            // Attempt to fetch the object
             var obj = ds.Venues.Find(id);
-            if (obj == null)
-                {
-                return null;
-                }
-            else
-                {
-                    VenueBaseViewModel newObj=mapper.Map<Venue,VenueBaseViewModel>(obj);
-                    return newObj;
-                }
+
+            return obj==null?null:mapper.Map<Venue,VenueBaseViewModel>(obj);
             }
 
         // Add new Venue
@@ -185,20 +176,13 @@ namespace HS2231A1.Controllers
         public VenueBaseViewModel VenueAdd(VenueAddViewModel newVenue)
             {
             // Attempt to add the new item
-            // mapping from CustomerAddViewModel to Customer Class
-            var addedItem = ds.Venues.Add(mapper.Map<VenueAddViewModel, Venue>(newVenue));
+            var addedItem=ds.Venues.Add(mapper.Map<VenueAddViewModel,Venue>(newVenue));
             ds.SaveChanges();
 
-            if (addedItem == null)
-                {
-                return null;
-                }
-            else
-                {
-                VenueBaseViewModel newObj = mapper.Map<Venue, VenueBaseViewModel>(addedItem);
-                return newObj;
-                }
+            // mapping from VenueAddViewModel to Venue Class
+            return addedItem == null ? null : mapper.Map<Venue, VenueBaseViewModel>(addedItem);
             }
+
 
         // edit existing Venue
         // Update an existing Venue object and save it to the data store
