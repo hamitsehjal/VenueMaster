@@ -170,6 +170,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manager.cs" />
+    <Compile Include="Controllers\VenuesController.cs" />
     <Compile Include="Data\Album.cs" />
     <Compile Include="Data\Artist.cs" />
     <Compile Include="Data\Customer.cs" />
@@ -187,6 +188,8 @@
     </Compile>
     <Compile Include="Models\CustomerAddViewModel.cs" />
     <Compile Include="Models\CustomerBaseViewModel.cs" />
+    <Compile Include="Models\CustomerEditContactFormViewModel.cs" />
+    <Compile Include="Models\CustomerEditContactViewModel.cs" />
     <Compile Include="Models\VenueAddViewModel.cs" />
     <Compile Include="Models\VenueBaseViewModel.cs" />
     <Compile Include="Models\VenueEditFormViewModel.cs" />
@@ -237,6 +240,13 @@
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Venues\Edit.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Venues\Delete.cshtml" />
+    <Content Include="Views\Venues\Index.cshtml" />
+    <Content Include="Views\Venues\Details.cshtml" />
+    <Content Include="Views\Venues\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
